@@ -291,6 +291,8 @@ struct PluginParametersInstance {
 
 unsafe impl Sync for PluginParametersInstance {}
 
+unsafe impl Send for PluginParametersInstance {}
+
 impl Drop for PluginInstance {
     fn drop(&mut self) {
         self.dispatch(plugin::OpCode::Shutdown, 0, 0, ptr::null_mut(), 0.0);
